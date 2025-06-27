@@ -163,7 +163,7 @@ Steps:
 Installation of Tomcat
 ----------------------
 >tomcat download
-> select the version (9.0) 
+> select the version (10.1) 
 > go to eclipse >window > show view > servers -> no servers will be there
 >select tomcat version you installed and link that one.
 > it will show on the servers. 
