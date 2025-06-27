@@ -1,0 +1,180 @@
+JDK : https://www.oracle.com/java/technologies/downloads/?er=221886
+Click on JDK21 - Stable version- Windows - x64 MSI Installer
+click on and download https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.msi (sha256)
+
+Step 1: Open Environment Variables
+Press Windows + S and search for
+Edit the system environment variables
+Click to open System Properties.
+In the System Properties window, click the button:
+Environment Variables...
+
+Step 2: Add JDK bin Directory to Path
+Under System Variables, scroll and find the variable named Path.
+Click on Path, then click Edit.
+In the edit window, click New and paste the full path to your JDK bin folder. Example:
+C:\Program Files\Java\jdk-21\bin
+Click OK on all windows to save and close.
+
+Step 3: Verify Installation
+Open Command Prompt (cmd)
+Type the following commands one by one:
+java -version
+javac -version
+You should see output like:
+java version "21.0.x"
+javac 21.0.x
+
+
+
+Syllabus:
+Servlets:
+Basics of Web, Servlet Lifecycle, Servlets API, HTTP Servlets with XML and annotation, Servlets Configuration, 
+Servlets Context, Servlets Collaboration, Session Tracking, CRUD operations
+
+
+What is Web?
+------------
+* The web(short for World wide web) is a System where people can Access information(like websites, videos, articles) over the internet.
+* You can use like chrome, safari or Firefox to open webpages.
+
+Term - A collection of related web pages.
+Example:www.google.com
+
+Webpage:
+A single page on a website.
+Example: Google's Homepage
+
+Browser: A Software to view websites.
+Example: Chrome
+
+Server: A computer that Stores Websites and sends them to your browser when you request.
+
+Client: Your computer or mobile that requests and views the website.
+
+
+How the Web Works?
+------------------
+1. You type a URL in the Browser.
+2. The Browser Send a Request to the Website's Server.
+3. The server responds with the Webpage.
+4. The Browser Displays the Page for you.
+
+
+
+
+frontend -> Backend -> Database
+
+
+What is Servlet?
+----------------
+Java Servlet is a Java Program that runs on a Java enabled Web Server or Application Server.
+It handles Client Requests, processes them, and generates responses Dynamically.
+Servlets are the Backbone of many server-side Java Applications due to their Efficiency and Scalability.
+
+Key-Features
+------------
+> Servlets work on the server side.
+> servlets are capable of handling complex requests obtained from the web server.
+> Generate Dynamic responses Efficiently.
+
+Java Servlet Architecture
+--------------------------
+
+			:...............>  web servers
+
+			:			:
+					 Java Servlet Program
+
+			:			:		
+Web Browser	<........		    Data base
+
+
+How Servlet Works?
+------------------
+			  __________________
+         		 |		    |
+			 |index.html	    |
+      			 |		    |
+	  request        |	 ____	    |
+client <================>|	|    |	    |
+	  Response       |	|____|	    |
+			 |__________________|
+
+				Server
+
+> When Client sends Request the Client will Expect some page.
+That page is Either static or Dynamic Page.
+static page  means that is already Build. so already have a file that file sends to the client.
+Dynamic page means Build at Runtime. So there is no static file with that link.
+so server send the request to the helper Application (web container).
+
+In that web container servlets will be there. servlet is a java program that process the information from the client give the response in the form of html page  to the client.
+
+Examples of web containers: Apache Tomcat, Glass Fish, WebSphere etc these are called as feature of AppServer as as Webserver.
+
+Example:
+for Example I am sending abc.html client request to the server , 
+server does not have the filename so it goes to server.
+here by using of web.xml file called as deployment descriptor tells the server which servlet is called for the which request.
+so in web.xml file it is having collection of servlet classes that tells the for which servlet process which file is called at that time.
+and process the particular servlet and give response back to the client in a html page in the form of response object.
+
+
+Servlet API
+-----------
+Servlet API is a set of Interfaces, classes and methods Provided by Java EE that helps:
+> Build Server-side Applications
+>Handle Http Requests and Responses
+> manage Web Server and Client Communication
+
+The Servlet API is mainly inside 2 Important packages:
+* javax.servlet.*;
+* javax.servlet.http.*;
+
+Servlet API Life Cycle
+----------------------
+step	method			purpose
+1	init()			Called once when servlet is created
+2	service()		Called Every time when Request comes
+3	destroy()		Called once when servlet is being removed
+
+Simple Structure
+-----------------
+Client Browser
+     ↓ (Request)
+Servlet Container (Tomcat/Jetty)
+     ↓ (Servlet API used internally)
+Your Servlet (extends HttpServlet)
+     ↓ (Response)
+Client Browser
+
+
+Execution of Java Servlets
+-------------------------
+Steps:
+1. Client send Request to the Web Server
+2. Web Server receives the Request
+3. The Webserver passes the Request to the Corresponding servlet
+4. The Servlet processes the request and generates the response in the form of output.
+5. the Servlet sends the response back to the web server.
+6. The web server send the response back to the client and the client browser displays it on the screen.
+
+Installation of Tomcat
+----------------------
+>tomcat download
+> select the version (9.0) 
+> go to eclipse >window > show view > servers -> no servers will be there
+>select tomcat version you installed and link that one.
+> it will show on the servers. 
+
+note: run the tomacat server defaultlt he tomcat server runs at 8080 port number.
+check on browser localhost:8080 the tomcat server is starts it will show page not found error.
+
+creating first project using servlet concept:
+-----------------------------------------------
+1. select the server.
+2. create dynamic web project and select server and path.
+3.In that create index.html file.
+
+
