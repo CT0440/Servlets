@@ -53,6 +53,17 @@ Server: A computer that Stores Websites and sends them to your browser when you 
 Client: Your computer or mobile that requests and views the website.
 
 
+Key Components of Web
+---------------------
+Component	Description
+Website		Collection of related web pages accessible via a domain name
+Web Page	A single document, typically written in HTML, that is part of a website
+URL		Uniform Resource Locator – the address of a web page
+Domain Name	The human-readable name (e.g., google.com) pointing to an IP address
+IP Address	Numeric address identifying a server on the internet
+Web Browser	Software to access and view web content (e.g., Chrome, Edge)
+Web Server	A system or software that hosts websites and serves web pages
+
 How the Web Works?
 ------------------
 1. You type a URL in the Browser.
@@ -176,5 +187,54 @@ creating first project using servlet concept:
 1. select the server.
 2. create dynamic web project and select server and path.
 3.In that create index.html file.
+
+servlet Lifecycle program
+-------------------------
+
+package com.example;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class Myservlet extends HttpServlet{
+	public void init() {
+		System.out.println("servlet Initiated!");
+	}
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		res.setContentType("text/html");
+		PrintWriter out = res.getWriter();
+		out.println("hello from servlet");
+	}
+	public void destroy() {
+		System.out.println("servlet destroyed");
+	}
+
+}
+
+
+web.xml
+-------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>susruthi</servlet-name>
+        <servlet-class>com.example.Myservlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>susruthi</servlet-name>
+        <url-pattern>/lifecycle</url-pattern>
+    </servlet-mapping>
+</web-app>
+
 
 
